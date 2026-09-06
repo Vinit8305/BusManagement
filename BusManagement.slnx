@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="busmanagement.client/busmanagement.client.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+  <Project Path="BusManagement.Server/BusManagement.Server.csproj" />
+</Solution>
