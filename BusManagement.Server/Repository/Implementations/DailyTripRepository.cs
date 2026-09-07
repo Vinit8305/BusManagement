@@ -25,7 +25,7 @@ namespace BusManagement.Server.Repository.Implementations
         public async Task<DailyTripInfo?> GetDailyTripByIdAsync(int id) 
         {
             var param = new SqlParameter("@TripId", id);
-            var result = await _dbContext.DailyTripInfo.FromSqlRaw("EXEC sp_GetDailyTripById, @TripId", param).AsNoTracking().ToListAsync();
+            var result = await _dbContext.DailyTripInfo.FromSqlRaw("EXEC sp_GetDailyTripById @TripId", param).AsNoTracking().ToListAsync();
             return result.FirstOrDefault();
         }
 
