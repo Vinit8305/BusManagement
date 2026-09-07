@@ -25,7 +25,7 @@ namespace BusManagement.Server.Repository.Implementations
         public async Task<MeterInfo?> GetMeterByIdAsync(int id)
         {
             var param = new SqlParameter("@MeterId", id);
-            var result = await _dbContext.MeterInfo.FromSqlRaw("EXEC sp_GetMeterInfo   ById, @MeterId", param).AsNoTracking().ToListAsync();
+            var result = await _dbContext.MeterInfo.FromSqlRaw("EXEC sp_GetMeterInfo @MeterId", param).AsNoTracking().ToListAsync();
             return result.FirstOrDefault();
         }
 
@@ -43,6 +43,12 @@ namespace BusManagement.Server.Repository.Implementations
             }, commandType: System.Data.CommandType.StoredProcedure);
 
             return result;
+        }
+        public async Task<bool> DeleteMeterAsync(int id)
+        {
+            var param = new SqlParameter("@MeterId", id);
+            int rowsAffected = await _dbContext.Database.ExecuteSqlRawAsync("EXEC sp_DeleteMeterInfo @MeterId", param);
+            return rowsAffected > 0;
         }
     }
 }

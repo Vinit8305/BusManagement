@@ -45,5 +45,15 @@ namespace BusManagement.Server.Controllers
             var newBus = await _busService.AddBusAsync(createDto);
             return CreatedAtAction(nameof(GetBusById), new { id = newBus.BusId }, newBus);
         }
+        [HttpDelete("{id:int}")]
+        public async Task<IActionResult> DeleteBus(int id)
+        {
+            var isDeleted = await _busService.DeleteBusAsync(id);
+            if (!isDeleted)
+            {
+                return NotFound(new { message = $" Bus with Id {id} not found. " });
+            }
+            return NoContent();
+        }
     }
 }

@@ -7,5 +7,6 @@ namespace BusManagement.Server.IServices
         Task<IEnumerable<MeterResponseDto>> GetAllMetersInfoAsync();
         Task<MeterResponseDto> GetMeterByIdAsync(int id);
         Task<MeterResponseDto> AddMeterAsync(CreateMeterDto createDto);
+        Task<bool> DeleteMeterAsync(int id);
     }
 }

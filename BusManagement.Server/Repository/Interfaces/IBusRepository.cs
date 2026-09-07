@@ -7,6 +7,7 @@ namespace BusManagement.Server.Repository.Interfaces
         Task<IEnumerable<Bus>> GetAllBusesAsync();
         Task<Bus?> GetBusByIdAsync(int id);
         Task<int> AddBusAsync(Bus bus);
-        
+        Task<bool> DeleteBusAsync(int id);
+
     }
 }

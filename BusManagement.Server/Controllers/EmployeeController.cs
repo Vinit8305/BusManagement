@@ -45,5 +45,15 @@ namespace BusManagement.Server.Controllers
             var newEmp = await _employeeService.AddEmployeeAsync(createDto);
             return Ok(newEmp);
         }
+        [HttpDelete("{id:int}")]
+        public async Task<IActionResult> DeleteEmployee(int id)
+        {
+            var isDeleted = await _employeeService.DeleteEmployeeAsync(id);
+            if (!isDeleted)
+            {
+                return NotFound(new { message = $" Employee with Id {id} not found. " });
+            }
+            return NoContent();
+        }
     }
 }

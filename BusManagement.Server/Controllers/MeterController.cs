@@ -48,5 +48,15 @@ namespace BusManagement.Server.Controllers
             return Ok(newMeter);
 
         }
+        [HttpDelete("{id:int}")]
+        public async Task<IActionResult> DeleteMeter(int id)
+        {
+            var isDeleted = await _meterService.DeleteMeterAsync(id);
+            if (!isDeleted)
+            {
+                return NotFound(new { message = $" Meter with Id {id} not found. " });
+            }
+            return NoContent();
+        }
     }
 }

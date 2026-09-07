@@ -63,5 +63,9 @@ namespace BusManagement.Server.Services
                 BusStartedDateAt = bus.BusStartedDateAt
             }; 
         }
+        public async Task<bool> DeleteBusAsync(int id)
+        {
+            return await _busRepository.DeleteBusAsync(id);
+        }
     }
 }

@@ -45,8 +45,6 @@ namespace BusManagement.Server.Repository.Implementations
                 dailyTripInfo.EveningMeterReading,
                 dailyTripInfo.DistanceCoverd,
                 dailyTripInfo.Average,
-                dailyTripInfo.ReFuelAmount,
-                dailyTripInfo.ReFuelQuentity,
             }, commandType: System.Data.CommandType.StoredProcedure);
             return result;
         }

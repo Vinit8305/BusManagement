@@ -39,6 +39,10 @@ namespace BusManagement.Server.Services
 
             }).ToList();
         }
+        public async Task<bool> DeleteEmployeeAsync(int id)
+        {
+            return await _employeeRepository.DeleteEmployeeAsync(id);
+        }
 
         public async Task<EmployeeResponseDto?> GetEmployeeByIdAsync(int id)
         {

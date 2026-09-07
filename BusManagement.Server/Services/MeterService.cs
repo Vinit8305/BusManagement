@@ -77,5 +77,9 @@ namespace BusManagement.Server.Services
                 TravelDate = meter.TravelDate
             };
         }
+        public async Task<bool> DeleteMeterAsync(int id)
+        {
+            return await _meterRepository.DeleteMeterAsync(id);
+        }
     }
 }

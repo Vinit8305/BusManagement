@@ -8,5 +8,6 @@ namespace BusManagement.Server.Repository.Interfaces
         Task<IEnumerable<MeterInfo>> GetAllMetersInfoAsync();
         Task<MeterInfo> GetMeterByIdAsync(int id);
         Task<int> AddMeterAsync(MeterInfo meter);
+        Task<bool> DeleteMeterAsync(int id);
     }
 }

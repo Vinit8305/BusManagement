@@ -7,5 +7,6 @@ namespace BusManagement.Server.IServices
         Task<IEnumerable<EmployeeResponseDto>> GetAllEmployeeAsync();
         Task<EmployeeResponseDto> GetEmployeeByIdAsync(int id);
         Task<EmployeeResponseDto> AddEmployeeAsync(CreateEmployeeDto createDto);
+        Task<bool> DeleteEmployeeAsync(int id);
     }
 }

@@ -24,7 +24,7 @@ namespace BusManagement.Server.Repository.Implementations
         public async Task<EmployeeInfo?> GetEmployeeByIdAsync(int id)
         {
             var param = new SqlParameter("@EmpId", id);
-            var result = await _dbContext.EmployeeInfo.FromSqlRaw("EXEC sp_GetEmployeById, @EmpId", param).AsNoTracking().ToListAsync();
+            var result = await _dbContext.EmployeeInfo.FromSqlRaw("EXEC sp_GetEmployeById @EmpId", param).AsNoTracking().ToListAsync();
             return result.FirstOrDefault();
         }
 
@@ -40,6 +40,12 @@ namespace BusManagement.Server.Repository.Implementations
                 employeeInfo.BusId
             }, commandType: System.Data.CommandType.StoredProcedure);
             return result;
+        }
+        public async Task<bool> DeleteEmployeeAsync(int id)
+        {
+            var param = new SqlParameter("@EmpId", id);
+            int rowsAffected = await _dbContext.Database.ExecuteSqlRawAsync("EXEC sp_DeleteEmployeeData @EmpId", param);
+            return rowsAffected > 0;
         }
     }
 }

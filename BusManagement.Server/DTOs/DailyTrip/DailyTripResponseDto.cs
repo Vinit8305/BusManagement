@@ -17,8 +17,6 @@ namespace BusManagement.Server.DTOs.DailyTrip
         public decimal MorningMeterReading { get; set; }
         public decimal EveningMeterReading { get; set; }
         public decimal DistanceCoverd { get; set; }
-        public decimal ReFuelQuentity { get; set; }
-        public decimal ReFuelAmount { get; set; }
         public decimal Average { get; set; }
     }
 }

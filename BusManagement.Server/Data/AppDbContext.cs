@@ -10,7 +10,7 @@ namespace BusManagement.Server.Data
 
         }
 
-        public DbSet<Bus> BusInfo {  get; set; }
+        public DbSet<Bus> Bus {  get; set; }
         public DbSet<MeterInfo> MeterInfo { get; set; }
         public DbSet<EmployeeInfo> EmployeeInfo { get; set; }
         public DbSet<FuelInfo> FuelInfo { get; set; }

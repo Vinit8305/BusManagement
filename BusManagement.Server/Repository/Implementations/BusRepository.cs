@@ -17,13 +17,13 @@ namespace BusManagement.Server.Repository.Implementations
 
         public async Task<IEnumerable<Bus>> GetAllBusesAsync()
         {
-            return await _dbContext.BusInfo.FromSqlRaw("EXEC sp_GetAllBusInfo").AsNoTracking().ToListAsync();
+            return await _dbContext.Bus.FromSqlRaw("EXEC sp_GetAllBusInfo").AsNoTracking().ToListAsync();
         }
 
         public async Task<Bus?> GetBusByIdAsync(int id)
         {
             var param = new SqlParameter("@BusId", id);
-            var result = await _dbContext.BusInfo.FromSqlRaw("EXEC sp_GetBusByID @BusId", param).AsNoTracking().ToListAsync();
+            var result = await _dbContext.Bus.FromSqlRaw("EXEC sp_GetBusByID @BusId", param).AsNoTracking().ToListAsync();
             return result.FirstOrDefault();
         }
 
@@ -36,6 +36,13 @@ namespace BusManagement.Server.Repository.Implementations
             var result = await _dbContext.Database.SqlQueryRaw<int>("EXEC sp_InsertBusData @BusNum, @IsActive, @BusStartedDateAt", param1, param2, param3).ToListAsync();
 
             return result.FirstOrDefault();
+        }
+        public async Task<bool> DeleteBusAsync(int id)
+        {
+            var param = new SqlParameter("@BusId", id);
+            int rowsAffected = await _dbContext.Database.ExecuteSqlRawAsync("EXEC sp_DeleteBusData @BusId", param);
+
+            return rowsAffected > 0;
         }
     }
 } 

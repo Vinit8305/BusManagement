@@ -19,7 +19,6 @@ namespace BusManagement.Server.Entity
         
         public ICollection<MeterInfo> MeterInfos { get; set; } = new List<MeterInfo>();
         public ICollection<EmployeeInfo> EmployeeInfos { get; set; } = new List<EmployeeInfo>();
-        public ICollection<FuelInfo> FuelInfos { get; set; } = new List<FuelInfo>();
         public ICollection<DailyTripInfo> DailyTripInfos { get; set;} = new List<DailyTripInfo>();
 
     }
