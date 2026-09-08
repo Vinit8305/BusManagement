@@ -31,6 +31,15 @@ namespace BusManagement.Server.Repository.Implementations
 
         public async Task<int> AddDailyTripAsync(DailyTripInfo dailyTripInfo)
         {
+            if(dailyTripInfo.MorningMeterReading < 0 || dailyTripInfo.EveningMeterReading < 0)
+            {
+                throw new ArgumentException("Meter readings cannot be negative.");
+            }
+            dailyTripInfo.DistanceCoverd = dailyTripInfo.EveningMeterReading - dailyTripInfo.MorningMeterReading;
+            if (dailyTripInfo.DistanceCoverd < 0)
+            {
+                throw new ArgumentException("Evening meter reading cannot be less than morning meter reading.");
+            }
             var connection = _dbContext.Database.GetDbConnection();
             var result = await connection.QuerySingleAsync<int>("sp_InsertDailyTrip", new
             {
