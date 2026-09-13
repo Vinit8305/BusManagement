@@ -31,6 +31,8 @@ builder.Services.AddScoped<IMeterRepository, MeterRepository>();
 builder.Services.AddScoped<IMeterService, MeterService>();
 builder.Services.AddScoped<IDailyTripService,DailyTripService>();
 builder.Services.AddScoped<IDailyTripRepository,DailyTripRepository>();
+builder.Services.AddScoped<IFuelService, FuelService>();
+builder.Services.AddScoped<IFuelRepository, FuelRepository>();
 
 
 var app = builder.Build();

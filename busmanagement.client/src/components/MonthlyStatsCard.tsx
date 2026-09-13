@@ -1,7 +1,7 @@
-import type { MonthGroup } from '../utils/dailyTripUtils';
+import type { MonthGroup } from "../types/DailyTripUtils";
 
 interface Props {
-  group: MonthGroup;
+    group: MonthGroup;
 }
 
 const StatBlock = ({ label, value, accent }: { label: string; value: string; accent?: boolean }) => (

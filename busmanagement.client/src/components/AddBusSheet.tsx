@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import type { addBusDto } from '../../types/bus/addBusDto';
+import type { addBusDto } from '../types/bus/addBusDto';
+
 
 interface Props {
   open: boolean;
   saving: boolean;
-  onClose: () => void;
-  onSave: (payload: addBusDto) => void;
+    onClose: () => void;
+    onSave: (payload: addBusDto) => void;
 }
 
 const todayIso = () => new Date().toISOString().slice(0, 10);

@@ -1,7 +1,7 @@
-import type { meterResponseDto } from '../../types/Meter/meterResponseDto';
+import type { meterResponseDto } from "../types/Meter/meterResponseDto";
 
 interface Props {
-  entry: meterResponseDto;
+    entry: meterResponseDto;
   busNum?: string;
   onTap: () => void;
 }

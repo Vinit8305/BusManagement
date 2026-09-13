@@ -21,5 +21,11 @@ export const endPoints = {
         CREATE: '/api/Meter',
         GETMETERID: (id: number) => `/api/Meter/${id}`,
         DELETE: (id: number)=>`/api/Meter/${id}`
+    },
+    Petrol: {
+        GetAllPetrol: '/api/Petrol',
+        CREATE: '/api/Petrol',
+        GETPetrolID: (id: number) => `/api/Petrol/${id}`,
+        DELETE: (id: number) =>`/api/Petrol/${id}`
     }
 }

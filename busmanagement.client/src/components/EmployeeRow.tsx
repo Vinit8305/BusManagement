@@ -1,7 +1,7 @@
-import type { employeeResponseDto } from '../../types/employee/employeeResponseDto';
+import type { employeeResponseDto } from "./AddDailyTripSheet";
 
 interface Props {
-  employee: employeeResponseDto;
+    employee: employeeResponseDto;
   busNum?: string;
   onTap: () => void;
 }

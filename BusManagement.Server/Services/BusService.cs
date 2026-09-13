@@ -27,7 +27,7 @@ namespace BusManagement.Server.Services
             });
         }
 
-        public async Task<BusResponseDto?> GetBusByIdAsync(int id)
+        public async Task<BusResponseDto> GetBusByIdAsync(int id)
         {
             var bus = await _busRepository.GetBusByIdAsync(id);
             if (bus == null)
@@ -46,7 +46,7 @@ namespace BusManagement.Server.Services
 
         public async Task<BusResponseDto> AddBusAsync(CreateBusDto createDto)
         {
-            var bus = new Bus
+            var bus = new Bus   
             {
                 BusNum = createDto.BusNum,
                 IsActive = createDto.IsActive,

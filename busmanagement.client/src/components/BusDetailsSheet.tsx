@@ -1,7 +1,8 @@
-import type { busResponseDto } from '../../types/bus/busResponseDto';
+import type { busResponseDto } from "../types/bus/busResponseDto";
+
 
 interface Props {
-  bus: busResponseDto | null;
+    bus: busResponseDto | null;
   onClose: () => void;
   onDeleteRequest: () => void;
 }

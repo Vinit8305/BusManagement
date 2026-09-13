@@ -1,7 +1,7 @@
-import type { busResponseDto } from '../../types/bus/busResponseDto';
+import type { busResponseDto } from "../types/bus/busResponseDto";
 
 interface Props {
-  bus: busResponseDto;
+    bus: busResponseDto;
   onTap: () => void;
 }
 

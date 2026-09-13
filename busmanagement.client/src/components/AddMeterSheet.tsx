@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import type { addMeterDto } from '../../types/Meter/addMeterDto';
-import type { busResponseDto } from '../../types/bus/busResponseDto';
+import type { busResponseDto } from '../types/bus/busResponseDto';
+import type { addMeterDto } from '../types/Meter/addMeterDto';
 
 interface Props {
   open: boolean;
-  saving: boolean;
-  buses: busResponseDto[];
-  onClose: () => void;
-  onSave: (payload: addMeterDto) => void;
+    saving: boolean;
+    buses: busResponseDto[];
+    onClose: () => void;
+    onSave: (payload: addMeterDto) => void;
 }
 
 const todayIso = () => new Date().toISOString().slice(0, 10);

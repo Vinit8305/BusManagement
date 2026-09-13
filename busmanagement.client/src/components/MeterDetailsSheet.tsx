@@ -1,7 +1,7 @@
-import type { meterResponseDto } from '../../types/Meter/meterResponseDto';
+import type { meterResponseDto } from "../types/Meter/meterResponseDto";
 
 interface Props {
-  entry: meterResponseDto | null;
+    entry: meterResponseDto | null;
   busNum?: string;
   onClose: () => void;
   onDeleteRequest: () => void;
